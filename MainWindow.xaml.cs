@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RegistroPrestamos.UI.Consulta;
+using RegistroPrestamos.UI.Registro;
 
 namespace RegistroPrestamos
 {
@@ -24,5 +26,35 @@ namespace RegistroPrestamos
         {
             InitializeComponent();
         }
+        private void RegistrosPersonasButton_Click(object sender, RoutedEventArgs e)
+        {
+            rPersonas rPersonas1 = new rPersonas();
+            rPersonas1.Show();
+
+        }
+        private void RegistrosPrestamosButton_Click(object sender, RoutedEventArgs e)
+        {
+            rPrestamos rPrestamo = new rPrestamos();
+            rPrestamo.Show();
+
+
+        }
+
+        private void ConsultasPersonasButton_Click(object sender, RoutedEventArgs e)
+        {
+            cPersonas cPersona = new cPersonas();
+            cPersona.Show();
+        }
+
+        private void ConsultasPrestamosButton_Click(object sender, RoutedEventArgs e)
+        {
+            cPrestamos cPrestamo = new cPrestamos();
+            cPrestamo.Show();
+        }
+        private void AyudaMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+    
 }
