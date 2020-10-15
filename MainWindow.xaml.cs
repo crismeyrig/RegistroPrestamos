@@ -36,8 +36,6 @@ namespace RegistroPrestamos
         {
             rPrestamos rPrestamo = new rPrestamos();
             rPrestamo.Show();
-
-
         }
 
         private void ConsultasPersonasButton_Click(object sender, RoutedEventArgs e)
@@ -50,6 +48,20 @@ namespace RegistroPrestamos
         {
             cPrestamos cPrestamo = new cPrestamos();
             cPrestamo.Show();
+        }
+
+         private void RegistrosMorasButton_Click(object sender, RoutedEventArgs e)
+        {
+           rMoras ventana = new rMoras();
+           ventana.Show();
+
+        }
+        
+        private void ConsultasMorasButton_Click(object sender, RoutedEventArgs e)
+        {
+
+           
+
         }
         private void AyudaMenu_Click(object sender, RoutedEventArgs e)
         {

@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Net.Http.Headers;
 using System.Text;
 using RegistroPrestamos.Entidades;
+using RegistroPrestamos.DAL;
 
 namespace RegistroPrestamos.BLL
 {

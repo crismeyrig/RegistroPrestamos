@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RegistroPrestamos.BLL;
+using RegistroPrestamos.DAL;
 using RegistroPrestamos.Entidades;
 
 namespace RegistroPrestamos.UI.Registro

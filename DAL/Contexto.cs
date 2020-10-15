@@ -2,15 +2,21 @@ using Microsoft.EntityFrameworkCore;
 using RegistroPrestamos;
 using RegistroPrestamos.Entidades;
 
-public class Contexto:DbContext
+namespace RegistroPrestamos.DAL
 {
-    public DbSet <Prestamos> Prestamos {get; set;}
-    public DbSet <Personas> Personas{get; set;}
-     
-      protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+    public class Contexto : DbContext
+    {
+        public DbSet<Personas> Personas { get; set; }
+
+        public DbSet<Prestamos> Prestamos{ get; set; } 
+
+        public DbSet<Moras> Moras{get; set;}
+       
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite(@"Data Source=Prestamos.db");
+            optionsBuilder.UseSqlite(@"Data Source = Data/Prestamos.db");
         }
-
+    }
 }

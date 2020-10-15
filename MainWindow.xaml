@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistroPrestamos"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Menu de Prestamos" Height="250" Width="350">
     <Grid>
  <Menu Height="20" VerticalAlignment="Top">
             <MenuItem Header="Registros">
                 <MenuItem x:Name="RegistrosPersonas" Header="Registros Personas" Click="RegistrosPersonasButton_Click"></MenuItem>
                 <MenuItem x:Name="RegistrosPrestamos" Header="Registros Prestamos" Click="RegistrosPrestamosButton_Click"></MenuItem>
+                  <MenuItem Name="RegistrosMoras"  Header="Registro de Mora" Click="RegistrosMorasButton_Click"/>
 
 
             </MenuItem>
             <MenuItem Header="Consultas">
                 <MenuItem x:Name="ConsultasPersonas" Header="Consultas Personas" Click="ConsultasPersonasButton_Click"></MenuItem>
                 <MenuItem x:Name="ConsultasPrestamos" Header="Consultas Prestamos" Click="ConsultasPrestamosButton_Click"></MenuItem>
-                
+                <MenuItem Name="ConsultasMorasButton" Header="Consulta de Moras" Click="ConsultasMorasButton_Click"/>
             </MenuItem>
 
             <MenuItem Name="AyudaMenu" Header="Ayuda" Click="AyudaMenu_Click"/>
