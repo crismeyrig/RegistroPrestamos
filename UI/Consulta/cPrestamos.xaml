@@ -15,7 +15,7 @@
                 <DatePicker x:Name="HastaDate"></DatePicker>
                 <Button x:Name="BuscarButton" Width="100" Margin="250,0,0,0" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Buscar"></Label>
+                        <Label Content="Buscar"/>
                         <Image Source= "/Imagenes/buscar.png" Width="25" Height= "25" Margin="180,-260,0,0"/>
                     </StackPanel>
                 </Button>
