@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RegistroPrestamos.UI.Consulta;
 using RegistroPrestamos.UI.Registro;
+using RegistroPrestamos.BLL;
 
 namespace RegistroPrestamos
 {
@@ -48,6 +49,7 @@ namespace RegistroPrestamos
         {
             cPrestamos cPrestamo = new cPrestamos();
             cPrestamo.Show();
+            
         }
 
          private void RegistrosMorasButton_Click(object sender, RoutedEventArgs e)

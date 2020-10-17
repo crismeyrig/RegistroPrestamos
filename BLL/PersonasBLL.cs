@@ -149,6 +149,28 @@ namespace RegistroPrestamos.BLL
             return lista;
          }
 
+          public static List<Personas>GetPersonas()
+        {                        
+            List<Personas> lista = new List<Personas>(); 
+            Contexto contexto = new Contexto();
+            try
+            {                
+                //obtener la lista y filtrarla segun el criterio recibido por parametro  
+               lista = contexto.Personas.ToList();
+            }          
+          catch(Exception){ 
+
+           throw;           
+        }           
+        
+         finally
+         {   
+              contexto.Dispose(); 
+         }            
+         
+            return lista; 
+        }
+
 
         
     }

@@ -12,7 +12,8 @@ using RegistroPrestamos.DAL;
 namespace RegistroPrestamos.BLL
 {
 
-    public class PrestamosBLL{
+    public class PrestamosBLL
+    {
 
         public static bool Guardar(Prestamos Prestamo)
         {
@@ -20,15 +21,15 @@ namespace RegistroPrestamos.BLL
             else { return Modificar(Prestamo); }
         }
 
-      public static bool Eliminar(int Id)
+        public static bool Eliminar(int Id)
         {
             Contexto datos = new Contexto();
             bool esOk = false;
 
             try
             {
-                var Prestamos = datos.Prestamos.Find(Id); 
-                if(Prestamos!= null)
+                var Prestamos = datos.Prestamos.Find(Id);
+                if (Prestamos != null)
                 {
                     datos.Prestamos.Remove(Prestamos);
                     esOk = datos.SaveChanges() > 0;
@@ -53,7 +54,7 @@ namespace RegistroPrestamos.BLL
 
             try
             {
-                if(datos.Prestamos.Add(Prestamo) != null) { esOk = datos.SaveChanges() > 0; }
+                if (datos.Prestamos.Add(Prestamo) != null) { esOk = datos.SaveChanges() > 0; }
             }
             catch (Exception)
             {
@@ -86,8 +87,8 @@ namespace RegistroPrestamos.BLL
             return esOk;
         }
 
-            private static bool Modificar(Prestamos Prestamo)
-            {
+        private static bool Modificar(Prestamos Prestamo)
+        {
             Contexto datos = new Contexto();
             bool esOk = false;
 
@@ -110,7 +111,7 @@ namespace RegistroPrestamos.BLL
         public static Prestamos Buscar(int Id)
         {
             Contexto datos = new Contexto();
-            Prestamos Prestamo= new Prestamos();
+            Prestamos Prestamo = new Prestamos();
 
             try
             {
@@ -128,30 +129,30 @@ namespace RegistroPrestamos.BLL
         }
 
         public static List<Prestamos> GetList(Expression<Func<Prestamos, bool>> criterio)
-        {                        
-            List<Prestamos> lista = new List<Prestamos>(); 
+        {
+            List<Prestamos> lista = new List<Prestamos>();
             Contexto contexto = new Contexto();
             try
-            {                
+            {
                 //obtener la lista y filtrarla segun el criterio recibido por parametro  
-               lista = contexto.Prestamos.Where(criterio).ToList();
-            }          
-          catch(Exception){ 
+                lista = contexto.Prestamos.Where(criterio).ToList();
+            }
+            catch (Exception)
+            {
 
-           throw;           
-        }           
-        
-         finally
-         {   
-              contexto.Dispose(); 
-         }            
-         
-            return lista; 
+                throw;
+            }
+
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
         }
 
 
-        
     }
- 
+
 }
 

@@ -16,6 +16,48 @@ namespace RegistroPrestamos.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.9");
 
+            modelBuilder.Entity("RegistroPrestamos.Entidades.Moras", b =>
+                {
+                    b.Property<int>("MoraId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("FechaMora")
+                        .HasColumnType("TEXT");
+
+                    b.Property<float>("Total")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("MoraId");
+
+                    b.ToTable("Moras");
+                });
+
+            modelBuilder.Entity("RegistroPrestamos.Entidades.MorasDetalle", b =>
+                {
+                    b.Property<int>("IdDetalle")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("FechaMoraDetalle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MoraId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PrestamoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("Valor")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("IdDetalle");
+
+                    b.HasIndex("MoraId");
+
+                    b.ToTable("MorasDetalle");
+                });
+
             modelBuilder.Entity("RegistroPrestamos.Entidades.Personas", b =>
                 {
                     b.Property<int>("PersonaId")
@@ -60,6 +102,15 @@ namespace RegistroPrestamos.Migrations
                     b.HasKey("PrestamoId");
 
                     b.ToTable("Prestamos");
+                });
+
+            modelBuilder.Entity("RegistroPrestamos.Entidades.MorasDetalle", b =>
+                {
+                    b.HasOne("RegistroPrestamos.Entidades.Moras", null)
+                        .WithMany("Detalle")
+                        .HasForeignKey("MoraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

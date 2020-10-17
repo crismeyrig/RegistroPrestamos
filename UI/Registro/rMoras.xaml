@@ -75,7 +75,7 @@
                 </Button>
                 <Button x:Name="GuardarButton"   Margin="10,0" Width="80"  Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/Guardarr.png" Width="20" Height="20"/>
+                        <Image Source="/Imagenes/Guardar.png" Width="20" Height="20"/>
                         <Label Content="Guardar" />
                     </StackPanel>
                 </Button>

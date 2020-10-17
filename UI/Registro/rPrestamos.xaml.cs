@@ -5,61 +5,69 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using RegistroPrestamos.BLL;
 using RegistroPrestamos.DAL;
 using RegistroPrestamos.Entidades;
+using Microsoft.EntityFrameworkCore;
 
 namespace RegistroPrestamos.UI.Registro
 {
-    public partial class rPrestamos:Window
+    public partial class rPrestamos : Window
     {
-        Prestamos prestamos = new Prestamos();
-        public rPrestamos ()
+        private Prestamos prestamos = new Prestamos();
+        public rPrestamos()
         {
             InitializeComponent();
-            DataContext = prestamos;
+            this.DataContext = prestamos;
+
+            PersonaIdComboBox.ItemsSource = PersonasBLL.GetPersonas();
+            PersonaIdComboBox.SelectedValuePath = "PersonaId";
+            PersonaIdComboBox.DisplayMemberPath = "Nombres";
+
 
         }
+        private void Cargar()
+        {
+            this.DataContext = null;
+            this.DataContext = prestamos;
+        }
+
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var prestamo= PrestamosBLL.Buscar(int.Parse(PrestamoIdTextBox.Text));
+            Prestamos encontrado = PrestamosBLL.Buscar(Utilidades.ToInt(PrestamoIdTextBox.Text));
 
-            if(prestamo != null)
+            if (encontrado != null)
             {
-                this.prestamos =  prestamo;
+                this.prestamos = encontrado;
+                Cargar();
             }
             else
             {
-                prestamo = new Prestamos();
+                this.prestamos = new Prestamos();
+                this.DataContext = this.prestamos;
+                MessageBox.Show("Este prestamo no fue encontrado.\n\nAsegurate de que existe o cree uno nuevo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Refrescar();
             }
-            DataContext = prestamo;
 
         }
 
-         private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
-            Contexto context = new Contexto();
-        
-                var proceso = PrestamosBLL.Guardar(prestamos);
+            if (!Validar())
+                return;
 
-                if (proceso == true)
-                {
-                    Refrescar();
-                    MessageBox.Show("Guardado Correctamente.", "Complete", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Guardado Fallido", "Incompleto", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            var proceso = PrestamosBLL.Guardar(prestamos);
+
+            if (proceso == true)
+            {
                 Refrescar();
-            
+                MessageBox.Show("Guardado Correctamente.", "Complete", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Guardado Fallido", "Incompleto", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -89,15 +97,33 @@ namespace RegistroPrestamos.UI.Registro
 
 
         private bool Validar()
-        {            
+        {
             bool esValido = true;
-            if(ConceptoTextBox.Text.Length ==0)
-            {                
-                esValido = true;     
-                MessageBox.Show("Transaccion Fallida" , "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);            }
-            return esValido;  
+            if (ConceptoTextBox.Text.Length == 0)
+            {
+                esValido = true;
+
+                MessageBox.Show("Transaccion Fallida", "Por favor indiqueun concepto", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            if (MontoTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Transaccion Fallida, Debe introducir un monto", "Fallo");
+            }
+            return esValido;
         }
-        }
+        /*private void mostrarDatos(){
+            PrestamoIdTextBox.Text = prestamos.PrestamoId.ToString();
+           // FechaDatePicker.Text = prestamos.Fecha; 
+            ConceptoTextBox.Text = prestamos.Concepto;
+            MontoTextBox.Text = prestamos.Monto.ToString("N2");
+            BalanceTextBox.Text = prestamos.Balance.ToString("N2"); 
+            PersonaIdComboBox.SelectedValue= prestamos.PersonaId;
+        }*/
+
     }
-        
-    
+
+
+}
+
+

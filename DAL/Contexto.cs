@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RegistroPrestamos;
 using RegistroPrestamos.Entidades;
+using System;
 
 namespace RegistroPrestamos.DAL
 {
@@ -9,14 +10,13 @@ namespace RegistroPrestamos.DAL
     {
         public DbSet<Personas> Personas { get; set; }
 
-        public DbSet<Prestamos> Prestamos{ get; set; } 
+        public DbSet<Prestamos> Prestamos { get; set; }
 
-        public DbSet<Moras> Moras{get; set;}
-       
+        public DbSet<Moras> Moras { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite(@"Data Source = Data/Prestamos.db");
+            optionsBuilder.UseSqlite(@"Data Source = Data\Prestamos.db");
         }
     }
 }

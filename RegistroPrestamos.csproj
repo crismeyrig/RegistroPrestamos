@@ -14,9 +14,13 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     
-<Content Include="Imagenes\*.*" >
+<Content Include="Imagenes\*.*">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>
