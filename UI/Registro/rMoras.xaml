@@ -15,7 +15,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="MoraIdTextBox" Margin="5,0"  Width="75" Height="20" Text="0"/>
-                    <Button x:Name="BuscarButton" Margin="5,0"  Width="110" Click="BuscarButton_Click">
+                    <Button x:Name="BuscarButton"  Width="110" Click="BuscarButton_Click" Margin="100,0,0,0">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Imagenes/buscar.png" Width="20" Height="20" />
                             <Label Content="Buscar"/>
@@ -66,23 +66,23 @@
             </StackPanel>
 
             <!--BARRA DE BOTONES-->
-            <StackPanel Orientation="Horizontal" Margin="0,15" >
-                <Button x:Name="NuevoButton" Margin="10,0" Width="80" Click="NuevoButton_Click">
+            <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center" VerticalAlignment="Stretch" >
+                <Button x:Name="NuevoButton"  Width="120" Height="40" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagenes/Nuevo.png" Width="20" Height="20" />
-                        <Label Content="Nuevo" />
+                        <Label Content="Nuevo" FontSize="17" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="GuardarButton"   Margin="10,0" Width="80"  Click="GuardarButton_Click">
+                <Button x:Name="GuardarButton"   Margin="100,0,0,0" Width="120"  Click="GuardarButton_Click" HorizontalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagenes/Guardar.png" Width="20" Height="20"/>
-                        <Label Content="Guardar" />
+                        <Label Content="Guardar" FontSize="17" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton"  Margin="10,0" Width="80"  Click="EliminarButton_Click">
+                <Button x:Name="EliminarButton"  Margin="100,0,0,0" Width="120"  Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagenes/Borrar.png" Width="20" Height="20"/>
-                        <Label Content="Eliminar" />
+                        <Label Content="Eliminar" FontSize="17" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
 
