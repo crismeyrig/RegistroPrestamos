@@ -23,7 +23,8 @@ namespace RegistroPrestamos.UI.Registro
             PersonaIdComboBox.ItemsSource = PersonasBLL.GetPersonas();
             PersonaIdComboBox.SelectedValuePath = "PersonaId";
             PersonaIdComboBox.DisplayMemberPath = "Nombres";
-
+            prestamos.Monto += prestamos.Balance;
+            this.DataContext = prestamos;
 
         }
         private void Cargar()

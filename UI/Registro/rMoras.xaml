@@ -14,7 +14,7 @@
                 <Label Content="Mora Id:"/>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="MoraIdTextBox" Margin="5,0"  Width="75" Height="20" Text="0"/>
+                    <TextBox x:Name="MoraIdTextBox"  Margin="5,0"  Width="75" Height="20" Text="0"/>
                     <Button x:Name="BuscarButton"  Width="110" Click="BuscarButton_Click" Margin="100,0,0,0">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Imagenes/buscar.png" Width="20" Height="20" />
@@ -33,7 +33,7 @@
                     <GroupBox Header="Detalles de Mora">
                         <StackPanel>
                             <Label Content="Prestamo"/>
-                            <TextBox x:Name="PrestamoTextBox" Text="{Binding Detalle.PrestamoId}"/>
+                            <ComboBox x:Name="PrestamoComboBox" Text="{Binding Detalle.PrestamoId}"/>
                             <Label Content="Valor"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBox x:Name="ValorTextBox" Text="{Binding Detalle.Valor}" Width="300" Height="18"/>

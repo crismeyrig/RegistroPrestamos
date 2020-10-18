@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" Margin="15">
             <StackPanel Orientation="Horizontal">
-                <!--PersonaId-->
+                <!--PrestamoId-->
                 <Label Content = "PrestamoId" FontWeight="Bold" FontSize="15px"  FontFamily="SimSun-ExtB" FontStyle="Normal"/>
                 <TextBox x:Name = "PrestamoIdTextBox" Text ="{Binding PrestamoId}" Width="100" Height="25" Margin="10,0,0,0"/>
                 <Button x:Name ="BuscarButton" Width = "100" Height ="30" Click ="BuscarButton_Click" Margin="100,0,0,0">

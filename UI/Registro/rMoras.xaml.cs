@@ -21,11 +21,14 @@ namespace RegistroPrestamos.UI.Registro
      public partial class rMoras : Window
      {
         private Moras moras = new Moras();
-
+        private MorasDetalle morasDetalle = new MorasDetalle();
         public rMoras()
         {
             InitializeComponent();
-            //Constructor
+            PrestamoComboBox.ItemsSource = PersonasBLL.GetList(p => true);
+            PrestamoComboBox.SelectedValuePath = "PrestamosId";
+            PrestamoComboBox.DisplayMemberPath = "Nombres";
+            moras.Total += morasDetalle.Valor;
             this.DataContext = moras;
         }
         private void Cargar()
@@ -71,7 +74,7 @@ namespace RegistroPrestamos.UI.Registro
         {
                             
            var filaDetalle = new MorasDetalle(Convert.ToInt32(MoraIdTextBox.Text),
-            moras.MoraId, Convert.ToInt32(PrestamoTextBox.Text),
+            moras.MoraId, Convert.ToInt32(PrestamoComboBox.Text),
             FechaDatePicker.DisplayDate, Convert.ToSingle(ValorTextBox.Text));
 
             moras.Detalle.Add(filaDetalle);
