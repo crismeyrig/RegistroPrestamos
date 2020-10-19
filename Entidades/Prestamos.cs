@@ -19,4 +19,7 @@ public int Monto {get; set;}
 public int Balance {get; set;}
 
 }
+public class Mora {
+    
+}
 }

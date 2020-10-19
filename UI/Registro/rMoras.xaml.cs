@@ -21,14 +21,14 @@ namespace RegistroPrestamos.UI.Registro
      public partial class rMoras : Window
      {
         private Moras moras = new Moras();
-        private MorasDetalle morasDetalle = new MorasDetalle();
+        //private MorasDetalle morasDetalle = new MorasDetalle();
         public rMoras()
         {
             InitializeComponent();
             PrestamoComboBox.ItemsSource = PersonasBLL.GetList(p => true);
             PrestamoComboBox.SelectedValuePath = "PrestamosId";
             PrestamoComboBox.DisplayMemberPath = "Nombres";
-            moras.Total += morasDetalle.Valor;
+            //moras.Total += morasDetalle.Valor;
             this.DataContext = moras;
         }
         private void Cargar()
