@@ -21,20 +21,22 @@ namespace RegistroPrestamos.UI.Registro
      public partial class rMoras : Window
      {
         private Moras moras = new Moras();
-        //private MorasDetalle morasDetalle = new MorasDetalle();
+       // private MorasDetalle morasDetalle = new MorasDetalle();
         public rMoras()
         {
             InitializeComponent();
-            PrestamoComboBox.ItemsSource = PersonasBLL.GetList(p => true);
+            PrestamoComboBox.ItemsSource = PrestamosBLL.GetList(p => true);
             PrestamoComboBox.SelectedValuePath = "PrestamosId";
-            PrestamoComboBox.DisplayMemberPath = "Nombres";
-            //moras.Total += morasDetalle.Valor;
+            PrestamoComboBox.DisplayMemberPath = "PrestmosId";
+            //moraId.Total += morasDetalle.Valor;
             this.DataContext = moras;
+            TotalTextBox.Text = "0";
         }
         private void Cargar()
         {
             this.DataContext = null;
             this.DataContext = moras;
+            
         }
         private void Limpiar()
         {
@@ -72,9 +74,10 @@ namespace RegistroPrestamos.UI.Registro
         }
          private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
-                            
+        
+                        
            var filaDetalle = new MorasDetalle(Convert.ToInt32(MoraIdTextBox.Text),
-            moras.MoraId, Convert.ToInt32(PrestamoComboBox.Text),
+            moras.MoraId, Convert.ToInt32(PrestamoComboBox.SelectedValue),
             FechaDatePicker.DisplayDate, Convert.ToSingle(ValorTextBox.Text));
 
             moras.Detalle.Add(filaDetalle);

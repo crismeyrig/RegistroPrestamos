@@ -20,7 +20,7 @@
                 </Button>
             </StackPanel>
 
-            <!--prestamosID-->
+            <!--PersonaID-->
             <Label Content = "PersonaId" FontWeight="Bold" FontSize="15px" FontFamily="SimSun-ExtB" FontStyle="Normal" Margin="0,5,0,0"/>
             <ComboBox x:Name="PersonaIdComboBox" Width="100" SelectedValue="{Binding PersonaId}" HorizontalAlignment="Left" />
 
